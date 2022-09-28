@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    text-decoration: none;
+}
+@font-face {
+    font-family:"Minecraft";
+    src: url(../font/Minecrafter.Reg.ttf);
+}
+/* permet de cacher la scroll-bar tout en gardant la fonctionnalité de scroll */
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Header */
+header{
+    background: url(../img/banner.gif) bottom;
+    background-size: cover;
+    height: 100vh;
+    font-family: "Minecraft";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #6B2737;
+    cursor: url("../img/cursor50.png"), default;
+}
+header h1{
+    font-size: 9rem;
+    text-transform: uppercase;
+    position: relative;
+    top: 30%;
+    
+}
+header h2{
+    position: relative;
+    top: 30%;
+    right: -30.5rem;
+    background-color: #FFE1EE;
+    padding: 8px 8px 6px 8px;
+    border: #6B2737 solid 3px;
+    text-transform: uppercase;
+}
+header::after{
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 50px;
+    top:90vh;
+    background: url(../img/scroll-down.gif) no-repeat center;
+    background-size: contain;
+}
