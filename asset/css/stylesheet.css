@@ -1,16 +1,54 @@
 *{
     margin: 0px;
     text-decoration: none;
+    list-style: square;
 }
 @font-face {
     font-family:"Minecraft";
     src: url(../font/Minecrafter.Reg.ttf);
 }
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(30px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+@keyframes shadow {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform:scale(1.3);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+a, a:visited, li{
+    font-family: "Minecraft";
+    font-size: 1.2rem;
+    color: black;
+    text-transform: uppercase;
+}
+a:hover{
+    color: rgb(230, 106, 4);
+}
+aside li{
+    padding: 2px 0;
+    margin-left:20px ;
+}
 /* permet de cacher la scroll-bar tout en gardant la fonctionnalité de scroll */
 body::-webkit-scrollbar {
     display: none;
   }
-
+body{
+    background: linear-gradient(180deg, rgba(124,152,150,1) 34%, rgba(209,172,236,1) 100%);
+}
 /* Header */
 header{
     background: url(../img/banner.gif) bottom;
@@ -21,18 +59,18 @@ header{
     flex-direction: column;
     align-items: center;
     color: #6B2737;
-    cursor: url("../img/cursor50.png"), default;
+    cursor: url("../img/cursor50.png") 20 10, default;
 }
 header h1{
     font-size: 9rem;
     text-transform: uppercase;
     position: relative;
-    top: 30%;
+    top: 38%;
     
 }
 header h2{
     position: relative;
-    top: 30%;
+    top: 38%;
     right: -30.5rem;
     background-color: #FFE1EE;
     padding: 8px 8px 6px 8px;
@@ -47,4 +85,219 @@ header::after{
     top:90vh;
     background: url(../img/scroll-down.gif) no-repeat center;
     background-size: contain;
+}
+
+/* main */
+.summary, .preamble, .requirements{
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 5rem;
+    font-size: 2rem;
+    text-align: justify;
+}
+.summary{
+    font-size: 1.5rem;
+    
+}
+.main{
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 5rem;
+    font-size: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+.explanation,  .benefits{
+    align-self: flex-end;
+    width: 50%;
+    margin-bottom: 100px;
+    position: relative;
+}
+.participation{
+    width: 50%;
+    margin-bottom: 100px;
+    position: relative;
+}
+.explanation::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -120%;
+    background: url(/asset/img/about.png) no-repeat center;
+    background-size: contain;
+    z-index: 500;
+    animation: 5s infinite alternate float;
+}
+.explanation::before{
+    content: "";
+    width: 250px;
+    position: absolute;
+    height: 80px;
+    background-color: black;
+    z-index: 500;
+    bottom: -20px;
+    left: -97%;
+    border-radius: 50%;
+    filter: blur(18px);
+    animation: 5s infinite alternate shadow;
+}
+.participation::after{
+    justify-content: center;
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -120%;
+    background: url(/asset/img/participation.png) no-repeat center;
+    background-size: contain;
+    z-index: 500;
+    animation: 5s infinite alternate float;
+}
+.participation::before{
+    content: "";
+    width: 300px;
+    position: absolute;
+    height: 100px;
+    background-color: black;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: 500;
+    bottom: -20px;
+    right: -100%;
+    filter: blur(50px);
+    animation: 5s infinite alternate shadow;
+}
+.benefits::after{
+    justify-content: center;
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -120%;
+    background: url(/asset/img/Benefits.gif) no-repeat center;
+    background-size: contain;
+    z-index: 500;
+    animation: 5s infinite alternate float;
+}
+.benefits::before{
+    content: "";
+    width: 300px;
+    position: absolute;
+    height: 60px;
+    background-color: black;
+    z-index: 500;
+    bottom: -60px;
+    border-radius: 50%;
+    left: -90%;
+    filter: blur(20px);
+    animation: 5s infinite alternate shadow;
+}
+h3{
+    display: inline-block;
+    background-color: #FFE1EE;
+    padding: 8px 8px 6px 8px;
+    border: #6B2737 solid 3px;
+    margin-bottom: 2rem;
+}
+
+/* Aside => transofmé en Nav Bar */
+aside{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 500;
+    height: 60px;
+    background-color: #60435F;
+}
+aside h3{
+    font-family: "Minecraft";
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+aside .wrapper{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.design-selection, .design-archives, .zen-resources{
+    position: relative;
+    white-space: nowrap;
+    margin-left: 9px;
+}
+.design-selection{
+    overflow: visible;
+    width: 231px;
+}
+.design-selection:hover [role="navigation"]{
+    animation-duration: 1s ;
+    transform: scaleY(1);
+}
+.design-selection:hover h3{
+    color: rgb(230, 106, 4);
+}
+.design-selection:hover{
+    overflow: none;
+}
+.design-selection [role="navigation"]{
+    transform-origin: top;
+    transform: scaleY(0);
+    width: 493px;
+    position: absolute;
+    top:55px;
+    transition-duration: 0.5s;
+}
+.design-archives{
+    overflow: visible;
+    width: 137px;
+}
+.design-archives:hover [role="navigation"]{
+    animation-duration: 1s ;
+    transform: scaleY(1);
+}
+.design-archives:hover h3{
+    color: rgb(230, 106, 4);
+}
+.design-selection:hover{
+    overflow: none;
+}
+.design-archives [role="navigation"]{
+    transform-origin: top;
+    transform: scaleY(0);
+    width: 225px;
+    position: absolute;
+    top:55px;
+    transition-duration: 0.5s;
+}
+ul{
+    background-color: #FFE1EE;
+    border: #6B2737 solid 3px;
+    padding: 0;
+}
+.zen-resources ul{
+    padding: 5px;
+    position: absolute;
+    top:56px;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition-duration: 0.5s;
+}
+.zen-resources:hover ul{
+    animation-duration: 1s ;
+    transform: scaleY(1);
+}
+.zen-resources:hover h3{
+    color: rgb(230, 106, 4);
+}
+
+/* footer */
+footer{
+    display: flex;
+    margin: 100px 0 20px 0;
+    justify-content: space-evenly;
 }
